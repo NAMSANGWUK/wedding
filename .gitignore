@@ -35,3 +35,17 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Database & Security (필수 추가) ###
+# 설정 파일에 DB 비밀번호가 있으므로 깃허브에 올라가지 않도록 막습니다.
+**/application*.yaml
+**/application*.yml
+
+### OS & Log Files ###
+.DS_Store           # macOS에서 자동 생성되는 숨김 파일
+Thumbs.db           # Windows에서 자동 생성되는 미리보기 파일
+*.log               # 애플리케이션 실행 중 생성되는 로그 파일들
+
+### Docker ###
+# 만약 프로젝트 폴더 내에 DB 데이터를 저장하는 폴더를 만들었다면 배제합니다.
+db_data/
