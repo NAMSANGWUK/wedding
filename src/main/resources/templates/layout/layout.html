@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웨딩카드 프로젝트</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+  <h1>WEDDINGCARD</h1>
+</header>
+
+<nav>
+  <div class="nav-left">
+    <a href="/wedding/">청첩장</a>
+    <a href="#">모바일</a>
+    <a href="#">웨딩영상</a>
+    <a href="#">답례/감사</a>
+  </div>
+
+  <div class="nav-right">
+    <button id="gotoLoginPageBtn" class="btn btn-primary">로그인</button>
+    <div class="search-box" style="display: flex; gap: 5px;">
+      <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
+      <button id="searchBtn" class="btn btn-outline">검색</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <th:block layout:fragment="content"></th:block>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>Copyright © WEDDINGCARD All rights reserved.</p>
+  </div>
+</footer>
+
+<th:block layout:fragment="script"></th:block>
+</body>
+</html>

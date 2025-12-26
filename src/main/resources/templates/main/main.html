@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}"
+>
+
+<th:block layout:fragment="content">
+  <h2>청첩장 목록</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="" alt="상품이미지">
+      <div class="product-name">GRENDY634</div>
+      <div class="product-price">13,000원 (10부)</div>
+    </div>
+  </div>
+</th:block>
+
+<th:block layout:fragment="script">
+  <script th:src="@{/js/main/main.js}"></script>
+</th:block>
+
+</html>

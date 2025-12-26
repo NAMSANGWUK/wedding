@@ -1,0 +1,147 @@
+/* 1. 기본 초기화 및 레이아웃 구조 */
+html, body {
+    height: 100%; /* html과 body의 높이를 확보해야 푸터가 바닥으로 갑니다 */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    /* 푸터를 바닥으로 밀어내기 위한 설정 */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 화면 전체 높이를 최소값으로 설정 */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 2. 헤더 영역 */
+header {
+    background-color: #1a232e;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    letter-spacing: 4px;
+    font-size: 28px;
+}
+
+/* 3. 네비게이션 GNB */
+nav {
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-left a {
+    position: relative; /* 구분선을 위한 기준점 */
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s;
+}
+
+/* [추가] 메뉴 사이 구분선 (::before 사용) */
+.nav-left a:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    left: -13px; /* 메뉴 사이 간격의 절반 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 12px;
+    background-color: #ddd;
+}
+
+.nav-left a:hover {
+    color: #ff5a5f;
+}
+
+/* 4. 메인 콘텐츠 영역 (푸터 고정의 핵심) */
+main {
+    flex: 1; /* 이 설정이 남는 공간을 다 채워 푸터를 아래로 밉니다 */
+    padding: 50px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 5. 버튼 및 입력창 스타일 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #ff5a5f;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #e54d52;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 90, 95, 0.2);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+.btn-outline:hover {
+    background-color: #f5f5f5;
+    border-color: #bbb;
+}
+
+#searchInput {
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+#searchInput:focus {
+    border-color: #ff5a5f;
+    outline: none;
+}
+
+/* 6. 푸터 영역 */
+footer {
+    background-color: #262c35;
+    color: #999;
+    padding: 50px 0;
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+}
