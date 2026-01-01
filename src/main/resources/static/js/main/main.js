@@ -1,9 +1,9 @@
 
 
 function gotoLoginPage(){
-  window.location.href="/login"
+  linking("/login");
 }
 
-document.addEventListener("DOMContentLoaded",function(){
-  document.querySelector("#gotoLoginPageBtn").addEventListener("click", gotoLoginPage)
-});
+$(document).ready(function(){
+  $('#gotoLoginPageBtn').on('click', gotoLoginPage);
+})

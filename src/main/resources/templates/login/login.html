@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+  <div class="login-container">
+    <h2>로그인</h2>
+
+    <div class="login-tabs">
+      <button class="tab-btn active">회원</button>
+      <button class="tab-btn">비회원 배송/주문조회</button>
+    </div>
+
+    <form action="/login" method="post" class="login-form">
+      <div class="input-group">
+        <input type="text" name="username" placeholder="아이디" required>
+        <input type="password" name="password" placeholder="비밀번호" required>
+      </div>
+
+      <div class="find-links">
+        <a href="#">아이디 찾기</a>
+        <span class="divider">|</span>
+        <a href="#">비밀번호 찾기</a>
+      </div>
+
+      <button type="submit" class="btn-login-submit">로그인</button>
+      <a href="/signup" class="btn-signup-link">회원가입</a>
+    </form>
+
+    <div class="social-login-section">
+      <div class="social-title">간편 로그인</div>
+      <div class="social-buttons">
+        <a th:href="@{/oauth2/authorization/naver}" class="btn-social naver">
+          <span class="icon">N</span> 네이버 로그인
+        </a>
+        <a th:href="@{/oauth2/authorization/kakao}" class="btn-social kakao">
+          <span class="icon">●</span> 카카오 로그인
+        </a>
+        <a th:href="@{/oauth2/authorization/google}" class="btn-social google">
+          <span class="icon">G</span> 구글 로그인
+        </a>
+      </div>
+    </div>
+  </div>
+</th:block>
+
+<th:block layout:fragment="script">
+  <script th:src="@{/js/main/main.js}"></script>
+</th:block>
+</html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +15,26 @@
 
 <nav>
   <div class="nav-left">
-    <a href="/wedding/">청첩장</a>
+    <a th:href="@{/wedding/}">청첩장</a>
     <a href="#">모바일</a>
     <a href="#">웨딩영상</a>
     <a href="#">답례/감사</a>
   </div>
 
   <div class="nav-right">
-    <button id="gotoLoginPageBtn" class="btn btn-primary">로그인</button>
+    <th:block sec:authorize="isAnonymous()">
+      <a th:href="@{/login}" class="btn btn-primary">로그인</a>
+    </th:block>
+
+    <th:block sec:authorize="isAuthenticated()">
+      <span style="font-size: 14px; color: #333;">
+        <strong sec:authentication="principal.attributes['name']">사용자</strong>님 환영합니다
+      </span>
+      <form th:action="@{/logout}" method="post" style="display: inline;">
+        <button type="submit" class="btn btn-outline" style="margin-left: 10px;">로그아웃</button>
+      </form>
+    </th:block>
+
     <div class="search-box" style="display: flex; gap: 5px;">
       <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
       <button id="searchBtn" class="btn btn-outline">검색</button>
@@ -38,6 +51,9 @@
     <p>Copyright © WEDDINGCARD All rights reserved.</p>
   </div>
 </footer>
+
+<script th:src="@{/js/lib/jquery-3.7.1.min.js}"></script>
+<script th:src="@{/js/common/common.js}"></script>
 
 <th:block layout:fragment="script"></th:block>
 </body>

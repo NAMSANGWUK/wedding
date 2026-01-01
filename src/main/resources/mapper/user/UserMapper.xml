@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.swnam.wedding.user.mapper.UserMapper">
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="userId">
+        INSERT INTO users (
+            email, name, provider, provider_id, role
+        ) VALUES (
+                     #{email}, #{name}, #{provider}, #{providerId}, #{role}
+                 )
+    </insert>
+
+    <select id="findByProvider" resultType="userDTO">
+        SELECT * FROM users
+        WHERE provider = #{provider} AND provider_id = #{providerId}
+    </select>
+
+    <select id="findByEmail" resultType="userDTO">
+        SELECT * FROM users WHERE email = #{email}
+    </select>
+
+    <update id="update">
+        UPDATE users
+        SET name = #{name},
+            email = #{email},
+            updated_at = NOW()
+        WHERE user_id = #{userId}
+    </update>
+
+</mapper>

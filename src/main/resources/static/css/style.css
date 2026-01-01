@@ -145,3 +145,154 @@ footer {
     text-align: center;
     width: 100%;
 }
+
+
+/* --- 로그인 페이지 스타일 --- */
+
+.login-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* 탭 스타일 */
+.login-tabs {
+    display: flex;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px 0;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+}
+
+.tab-btn.active {
+    background: #fff;
+    font-weight: bold;
+    color: #333;
+}
+
+.tab-btn:not(.active) {
+    background: #f9f9f9;
+    border-left: 1px solid #ddd;
+}
+
+/* 입력창 스타일 */
+.login-form .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: -1px; /* 테두리 겹치기 */
+}
+
+.login-form input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.login-form input:first-child {
+    border-bottom: none;
+}
+
+/* 찾기 링크 */
+.find-links {
+    margin: 15px 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.find-links .divider {
+    margin: 0 10px;
+    color: #eee;
+}
+
+/* 메인 로그인/회원가입 버튼 */
+.btn-login-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #1a232e;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.btn-signup-link {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #1a232e;
+    background: #fff;
+    color: #1a232e;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+/* 소셜 로그인 섹션 */
+.social-login-section {
+    margin-top: 40px;
+}
+
+.social-title {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.social-title::before, .social-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background-color: #eee;
+}
+.social-title::before { left: 0; }
+.social-title::after { right: 0; }
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-social {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-social.naver { background-color: #03c75a; color: #fff; }
+.btn-social.kakao { background-color: #fee500; color: #3c1e1e; }
+.btn-social.google { background-color: #fff; border: 1px solid #ddd; color: #333; }
+
+.btn-social .icon {
+    font-weight: bold;
+    width: 20px;
+}
