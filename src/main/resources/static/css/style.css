@@ -296,3 +296,49 @@ footer {
     font-weight: bold;
     width: 20px;
 }
+/* --- 회원가입(Signup) 전용 보완 스타일 --- */
+
+/* 회원가입 폼 내의 인풋들 테두리 설정 (로그인과 분리) */
+.signup-form .input-group input {
+    border: 1px solid #ddd;
+    border-bottom: none; /* 일단 아래를 다 지움 */
+}
+
+/* 마지막 상세주소 인풋만 아래 테두리 살리고 둥글게 */
+.signup-form .input-group input:last-child {
+    border-bottom: 1px solid #ddd;
+    border-radius: 0 0 6px 6px !important;
+}
+
+/* 주소찾기 행 스타일 */
+.address-row {
+    display: flex;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: none; /* 중간선 중복 방지 */
+}
+
+.address-row input {
+    flex: 1;
+    border: none !important; /* 내부선 제거 */
+}
+
+.btn-address {
+    width: 100px;
+    background: #f9f9f9;
+    border: none;
+    border-left: 1px solid #ddd;
+    color: #666;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-address:hover {
+    background: #eee;
+}
+
+/* 기본주소 인풋 테두리 보정 (주소행 바로 아래) */
+#address {
+    border-top: 1px solid #ddd !important;
+}

@@ -1,6 +1,8 @@
 package com.swnam.wedding.config;
 
 
+import com.swnam.wedding.user.service.CustomOAuth2UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,7 +12,10 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+  private final CustomOAuth2UserService customOAuth2UserService;
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -22,16 +27,16 @@ public class SecurityConfig {
             .formLogin(form -> form
                     .loginPage("/login") // 아까 만든 커스텀 로그인 페이지
                     .loginProcessingUrl("/loginProc")
+                    .usernameParameter("username")
                     .defaultSuccessUrl("/")
                     .permitAll()
             )
             .oauth2Login(oauth2 -> oauth2
-                    .loginPage("/login") // OAuth2 로그인도 우리가 만든 페이지에서 시작
-                    .defaultSuccessUrl("/") // 로그인 성공 시 이동할 곳
+                    .loginPage("/login")
+                    .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))
+                    .defaultSuccessUrl("/")
             )
-            .logout(logout -> logout
-                    .logoutSuccessUrl("/")
-                    .permitAll()
+            .logout(logout -> logout.logoutSuccessUrl("/")
             );
 
     return http.build();

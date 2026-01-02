@@ -6,19 +6,41 @@
 
     <insert id="save" useGeneratedKeys="true" keyProperty="userId">
         INSERT INTO users (
-            email, name, provider, provider_id, role
+            email
+            , password
+            , name
+            , provider
+            , provider_id
+            , role
+            , postcode
+            , address
+            , detail_address
         ) VALUES (
-                     #{email}, #{name}, #{provider}, #{providerId}, #{role}
-                 )
+            #{email}
+            , #{password}
+            , #{name}
+            , #{provider}
+            , #{providerId}
+            , #{role}
+            , #{postcode}
+            , #{address}
+            , #{detailAddress}
+         )
     </insert>
 
     <select id="findByProvider" resultType="userDTO">
-        SELECT * FROM users
-        WHERE provider = #{provider} AND provider_id = #{providerId}
+        SELECT
+            *
+        FROM users
+        WHERE provider = #{provider}
+            AND provider_id = #{providerId}
     </select>
 
     <select id="findByEmail" resultType="userDTO">
-        SELECT * FROM users WHERE email = #{email}
+        SELECT
+            *
+        FROM users
+        WHERE email = #{email}
     </select>
 
     <update id="update">

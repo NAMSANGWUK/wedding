@@ -1,5 +1,6 @@
 package com.swnam.wedding.user.service;
 
+import com.swnam.wedding.user.dto.PrincipalDetails;
 import com.swnam.wedding.user.dto.UserDTO;
 import com.swnam.wedding.user.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
@@ -85,7 +86,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         userMapper.update(updatedUser);
       }
     }
-
-    return oAuth2User;
+    return new PrincipalDetails(userDTO, oAuth2User.getAttributes());
   }
 }

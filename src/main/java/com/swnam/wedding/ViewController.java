@@ -13,6 +13,11 @@ public class ViewController {
 
   @GetMapping("/login")
   public String loginPage() {
-    return "login/login";
+    return "user/login";
+  }
+
+  @GetMapping("/signup")
+  public String signupPage() {
+    return "user/signup"; // templates/user/signup.html
   }
 }

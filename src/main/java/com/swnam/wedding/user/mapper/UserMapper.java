@@ -9,6 +9,8 @@ public interface UserMapper {
   // 소셜 정보로 기존 회원인지 확인
   UserDTO findByProvider(@Param("provider") String provider, @Param("providerId") String providerId);
 
+  UserDTO findByEmail(@Param("email") String email);
+
   // 신규 회원 가입
   void save(UserDTO userDTO);
 
